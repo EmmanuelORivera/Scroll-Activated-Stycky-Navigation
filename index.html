@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Activated Stycky Navigation</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="inner flex">
+        <a href="#" class="logo">SomeComp</a>
+        <nav>
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <section>
+      <div class="inner">
+        <h1>Go further than ever before</h1>
+        <p class="subhead">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          perferendis vero incidunt beatae quos mollitia, eos dolores aperiam
+          facere dolor?
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi porro,
+          aliquam explicabo sint voluptatibus optio hic adipisci tenetur
+          voluptatem laborum incidunt delectus deserunt? Sint doloribus
+          cupiditate veritatis possimus, soluta iure.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi porro,
+          aliquam explicabo sint voluptatibus optio hic adipisci tenetur
+          voluptatem laborum incidunt delectus deserunt? Sint doloribus
+          cupiditate veritatis possimus, soluta iure.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi porro,
+          aliquam explicabo sint voluptatibus optio hic adipisci tenetur
+          voluptatem laborum incidunt delectus deserunt? Sint doloribus
+          cupiditate veritatis possimus, soluta iure.
+        </p>
+        <h2>Another subtitle</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi porro,
+          aliquam explicabo sint voluptatibus optio hic adipisci tenetur
+          voluptatem laborum incidunt delectus deserunt? Sint doloribus
+          cupiditate veritatis possimus, soluta iure.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi porro,
+          aliquam explicabo sint voluptatibus optio hic adipisci tenetur
+          voluptatem laborum incidunt delectus deserunt? Sint doloribus
+          cupiditate veritatis possimus, soluta iure.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi porro,
+          aliquam explicabo sint voluptatibus optio hic adipisci tenetur
+          voluptatem laborum incidunt delectus deserunt? Sint doloribus
+          cupiditate veritatis possimus, soluta iure.
+        </p>
+      </div>
+    </section>
+  </body>
+  <script>
+    const body = document.body;
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', (e) => {
+      const currentScroll = window.pageYOffset;
+
+      console.log({ lastScroll, currentScroll });
+      if (currentScroll <= 0) {
+        body.classList.remove('scroll-up');
+      }
+
+      if (
+        currentScroll > lastScroll &&
+        !body.classList.contains('scroll-down')
+      ) {
+        body.classList.remove('scroll-up');
+        body.classList.add('scroll-down');
+      }
+
+      if (
+        currentScroll < lastScroll &&
+        body.classList.contains('scroll-down')
+      ) {
+        body.classList.add('scroll-up');
+        body.classList.remove('scroll-down');
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+</html>
